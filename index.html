@@ -145,22 +145,56 @@
       a:hover {
         transform: scale(1.05) skew(-5deg);
       }
-      .source{
-        text-decoration-color: rgb(160,87,254);
-        color: rgb(160,87,254);
+
+      .source {
+        text-decoration-color: rgb(160, 87, 254);
+        color: rgb(160, 87, 254);
+      }
+
+      .img-container {
+        position: relative;
+      }
+
+      .christmas-tree {
+        filter: drop-shadow(0 0 1.5rem rgba(90, 255, 139, 0.6));
+      }
+
+      .gift {
+        filter: drop-shadow(0 0 0.5rem rgba(253, 213, 136, 0.7));
+        width: 20px;
+      }
+
+      .santa {
+        filter: drop-shadow(0 0 0.8rem rgba(221, 46, 68, 0.8));
+        height: 2.5rem;
+      }
+
+      .tree-icon {
+        filter: drop-shadow(0 0 0.7rem rgba(90, 255, 139, 0.8));
+        height: 2.5rem;
+      }
+
+      .footer-left {
+        float: left;
+      }
+
+      .footer-right {
+        float: right;
       }
     </style>
   </head>
   <body>
     <div>
-      <div style="position: relative;">
-        <img src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f384.png" style="filter: drop-shadow(0 0 1.5rem rgba(90, 255, 139, 0.6));">
-        <img src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f381.png" width="20px" style="filter: drop-shadow(0 0 0.5rem rgba(253, 213, 136, 0.7));">
+      <div class="img-container">
+        <img class="christmas-tree" src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f384.png">
+        <img class="gift" src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f381.png">
       </div>
       <div class="background-grid"></div>
       <div class="cursor-light"></div>
       <div class="card">
-        <h1><img src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f385.png" style="filter: drop-shadow(0 0 0.8rem rgba(221,46,68, 0.8)); height:2.5rem;"> Merry Christmas! <img src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f384.png" style="filter: drop-shadow(0 0 0.7rem rgba(90, 255, 139, 0.8)); height:2.5rem;"></h1>
+        <h1>
+          <img class="santa" src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f385.png"> Merry Christmas! <img class="tree-icon" src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f384.png">
+        </h1>
         <div id="counter">Calculating days...</div>
       </div>
       <script>
@@ -207,13 +241,12 @@
         setInterval(updateCounter, 86400000);
       </script>
       <p>
-      <span style="float:left;">
-       Made by <a href="https://t3rm1n4l.dev">T3RM1N4L</a>
-       </span>
-<span style="float:right;">
-<a class="source" href="https://github.com/T3M1N4L/christmas-countdown/">T3M1N4L/Christmas-countdown</a>
-      </span>
+        <span class="footer-left"> Made by <a href="https://t3rm1n4l.dev">T3RM1N4L</a>
+        </span>
+        <span class="footer-right">
+          <a class="source" href="https://github.com/T3M1N4L/christmas-countdown/">T3M1N4L/Christmas-countdown</a>
+        </span>
       </p>
-      </div>
+    </div>
   </body>
 </html>
