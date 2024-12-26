@@ -133,7 +133,7 @@
         }
       }
 
-      .name {
+      a {
         display: inline-block;
         text-decoration-style: wavy;
         text-decoration-line: underline;
@@ -142,8 +142,12 @@
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.9);
       }
 
-      .name:hover {
+      a:hover {
         transform: scale(1.05) skew(-5deg);
+      }
+      .source{
+        text-decoration-color: rgb(160,87,254);
+        color: rgb(160,87,254);
       }
     </style>
   </head>
@@ -156,7 +160,7 @@
       <div class="background-grid"></div>
       <div class="cursor-light"></div>
       <div class="card">
-        <h1>🎅 Merry Christmas! 🎄</h1>
+        <h1><img src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f385.png" style="filter: drop-shadow(0 0 0.8rem rgba(221,46,68, 0.8)); height:2.5rem;"> Merry Christmas! <img src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f384.png" style="filter: drop-shadow(0 0 0.7rem rgba(90, 255, 139, 0.8)); height:2.5rem;"></h1>
         <div id="counter">Calculating days...</div>
       </div>
       <script>
@@ -202,8 +206,14 @@
         updateCounter();
         setInterval(updateCounter, 86400000);
       </script>
-      <p style="position:absolute; bottom: 10px right: 10px;"> Made by <a class="name" href="https://t3rm1n4l.dev">T3RM1N4L</a>
+      <p>
+      <span style="float:left;">
+       Made by <a href="https://t3rm1n4l.dev">T3RM1N4L</a>
+       </span>
+<span style="float:right;">
+<a class="source" href="https://github.com/T3M1N4L/christmas-countdown/">T3M1N4L/Christmas-countdown</a>
+      </span>
       </p>
-    </div>
+      </div>
   </body>
 </html>
