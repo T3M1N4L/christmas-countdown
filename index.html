@@ -1,200 +1,209 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎅 Merry Christmas! 🎄</title>
     <style>
-        :root {
-            --background: 0 0% 0%;
-            --foreground: 210 40% 98%;
-            --card-foreground: 210 40% 98%;
-            --primary: 0 91.2% 59.8%;
-            --primary-foreground: 222.2 47.4% 11.2%;
-            --secondary: 0.2 32.6% 17.5%;
-            --secondary-foreground: 210 40% 98%;
-            --muted: 217.2 32.6% 17.5%;
-            --muted-foreground: 215 20.2% 65.1%;
-            --accent: 217.2 32.6% 17.5%;
-            --accent-foreground: 210 40% 98%;
-            --destructive: 0 62.8% 30.6%;
-            --destructive-foreground: 210 40% 98%;
-            --border: 217.2 32.6% 17.5%;
-            --radius: 0.5rem;
+      :root {
+        --background: 0 0% 0%;
+        --foreground: 210 40% 98%;
+        --card-foreground: 210 40% 98%;
+        --primary: 0 91.2% 59.8%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+        --secondary: 0.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+        --border: 217.2 32.6% 17.5%;
+        --radius: 0.5rem;
+      }
+
+      * {
+        border-color: hsl(var(--border));
+      }
+
+      body {
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .background-grid {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(hsl(var(--muted)) 1px, transparent 1px);
+        background-size: 2rem 2rem;
+        z-index: -1;
+        animation: moveGrid 4s linear infinite;
+        transition: background-position-x 400ms;
+      }
+
+      @keyframes moveGrid {
+        0% {
+          background-position: 0 0;
         }
 
-        * {
-            border-color: hsl(var(--border));
+        100% {
+          background-position: 2rem 2rem;
         }
+      }
 
-        body {
-            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            background-color: hsl(var(--background));
-            color: hsl(var(--foreground));
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+      .background-grid:hover {
+        background-position-x: 2rem;
+      }
 
-        .background-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: radial-gradient(hsl(var(--muted)) 1px, transparent 1px);
-            background-size: 2rem 2rem;
-            z-index: -1;
-            animation: moveGrid 4s linear infinite;
-            transition: background-position-x 400ms;
-        }
+      .cursor-light {
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(90, 255, 139, 0.3) 0%, rgba(90, 255, 139, 0) 70%);
+        pointer-events: none;
+        z-index: 1;
+        mix-blend-mode: normal;
+      }
 
-        @keyframes moveGrid {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 2rem 2rem;
-            }
-        }
+      .card {
+        background-color: rgba(10, 10, 10, 0.1);
+        border-radius: var(--radius);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+        padding: 2rem;
+        text-align: center;
+        max-width: 90%;
+        width: 400px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        position: relative;
+        overflow: hidden;
+        z-index: 2;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
 
-        .background-grid:hover {
-            background-position-x: 2rem;
-        }
+      .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+      }
 
-        .cursor-light {
-            position: fixed;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(90, 255, 139, 0.3) 0%, rgba(90, 255, 139, 0) 70%);
-            pointer-events: none;
-            z-index: 1;
-            mix-blend-mode: normal;
-        }
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.05em;
+        margin-bottom: 1rem;
+        color: hsl(var(--card-foreground));
+      }
 
-       .card {
-            background-color: rgba(10, 10, 10, 0.1);
-            border-radius: var(--radius);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
-            padding: 2rem;
-            text-align: center;
-            max-width: 90%;
-            width: 400px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            position: relative;
-            overflow: hidden;
-            z-index: 2;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
+      #counter {
+        font-size: 1.25rem;
+        color: hsl(var(--muted-foreground));
+      }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
-        }
+      .snowflake {
+        position: fixed;
+        top: -10%;
+        color: hsl(var(--foreground) / 0.7);
+        font-size: 1rem;
+        pointer-events: none;
+        animation: fall 5s linear infinite;
+        z-index: 3;
+      }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.05em;
-            margin-bottom: 1rem;
-            color: hsl(var(--card-foreground));
+      @keyframes fall {
+        to {
+          transform: translateY(110vh);
         }
+      }
 
-        #counter {
-            font-size: 1.25rem;
-            color: hsl(var(--muted-foreground));
-        }
+      .name {
+        display: inline-block;
+        text-decoration-style: wavy;
+        text-decoration-line: underline;
+        text-decoration-color: rgb(84, 222, 171);
+        color: rgb(84, 222, 171);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.9);
+      }
 
-        .snowflake {
-            position: fixed;
-            top: -10%;
-            color: hsl(var(--foreground) / 0.7);
-            font-size: 1rem;
-            pointer-events: none;
-            animation: fall 5s linear infinite;
-            z-index: 3;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(110vh);
-            }
-        }
+      .name:hover {
+        transform: scale(1.05) skew(-5deg);
+      }
     </style>
-</head>
-<body>
-    <div class="background-grid"></div>
-    <div class="cursor-light"></div>
-    <div class="card">
+  </head>
+  <body>
+    <div>
+      <div style="position: relative;">
+        <img src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f384.png" style="filter: drop-shadow(0 0 1.5rem rgba(90, 255, 139, 0.6));">
+        <img src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f381.png" width="20px" style="filter: drop-shadow(0 0 0.5rem rgba(253, 213, 136, 0.7));">
+      </div>
+      <div class="background-grid"></div>
+      <div class="cursor-light"></div>
+      <div class="card">
         <h1>🎅 Merry Christmas! 🎄</h1>
         <div id="counter">Calculating days...</div>
-    </div>
-
-    <script>
+      </div>
+      <script>
         const cursorLight = document.querySelector('.cursor-light');
         document.addEventListener('mousemove', (e) => {
-            cursorLight.style.left = e.clientX - 50 + 'px';
-            cursorLight.style.top = e.clientY - 50 + 'px';
+          cursorLight.style.left = e.clientX - 50 + 'px';
+          cursorLight.style.top = e.clientY - 50 + 'px';
         });
 
         function createSnowflake() {
-            const snowflake = document.createElement('div');
-            snowflake.textContent = '❄';
-            snowflake.classList.add('snowflake');
-
-            const size = Math.random() * 1.5 + 0.5 + 'rem';
-            const position = Math.random() * 100 + 'vw';
-            const duration = Math.random() * 3 + 2 + 's';
-
-            snowflake.style.fontSize = size;
-            snowflake.style.left = position;
-            snowflake.style.animationDuration = duration;
-
-            document.body.appendChild(snowflake);
-
-            setTimeout(() => {
-                snowflake.remove();
-            }, parseFloat(duration) * 1000);
+          const snowflake = document.createElement('div');
+          snowflake.textContent = '❄';
+          snowflake.classList.add('snowflake');
+          const size = Math.random() * 1.5 + 0.5 + 'rem';
+          const position = Math.random() * 100 + 'vw';
+          const duration = Math.random() * 3 + 2 + 's';
+          snowflake.style.fontSize = size;
+          snowflake.style.left = position;
+          snowflake.style.animationDuration = duration;
+          document.body.appendChild(snowflake);
+          setTimeout(() => {
+            snowflake.remove();
+          }, parseFloat(duration) * 1000);
         }
-
         setInterval(createSnowflake, 300);
-
         const counterElement = document.getElementById('counter');
+
         function updateCounter() {
-            const today = new Date();
-            const currentYear = today.getFullYear();
-            let nextChristmas = new Date(currentYear, 11, 25);
-
-            if (today > nextChristmas) {
-                nextChristmas.setFullYear(currentYear + 1);
-            }
-
-            if (today.getMonth() === 11 && today.getDate() === 25) {
-                counterElement.textContent = "✨ It's Christmas today! ✨";
-                return;
-            }
-
-            const diffTime = nextChristmas - today;
-            const daysLeft = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-            counterElement.textContent = `✨ ${daysLeft} day${daysLeft !== 1 ? 's' : ''} until Christmas! ✨ `;
+          const today = new Date();
+          const currentYear = today.getFullYear();
+          let nextChristmas = new Date(currentYear, 11, 25);
+          if (today > nextChristmas) {
+            nextChristmas.setFullYear(currentYear + 1);
+          }
+          if (today.getMonth() === 11 && today.getDate() === 25) {
+            counterElement.textContent = "✨ It's Christmas today! ✨";
+            return;
+          }
+          const diffTime = nextChristmas - today;
+          const daysLeft = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          counterElement.textContent = `✨ ${daysLeft} day${daysLeft !== 1 ? 's' : ''} until Christmas! ✨ `;
         }
-
         updateCounter();
         setInterval(updateCounter, 86400000);
-    </script>
-</body>
+      </script>
+      <p style="position:absolute; bottom: 10px right: 10px;"> Made by <a class="name" href="https://t3rm1n4l.dev">T3RM1N4L</a>
+      </p>
+    </div>
+  </body>
 </html>
